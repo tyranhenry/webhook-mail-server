@@ -15,11 +15,11 @@ Clone this repository, and make the required changes to the code in `app.py` by 
 If you already have a list of email addresses that you wish to have added to the email list, you can go ahead and add these to the `user_emails.txt` file, but ensure they are added as a list with nothing but the email address on each line, something like the below;
 
 ```
-john.smith@anchore.com
-aaron.richards@anchore.com
-joe.bloggs@anchore.com
-tom.daniels@anchore.com
-admin@anchore.com
+john.smith@company.com
+aaron.richards@company.com
+joe.bloggs@company.com
+tom.daniels@company.com
+admin@company.comOm
 ```
 
 Once the code and text file have both been updated, you can build the container Dockerfile from your terminal. Make sure your terminal is in the directory of the cloned repo and then run;
