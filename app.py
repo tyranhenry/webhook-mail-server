@@ -4,22 +4,24 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-def list_builder(file):
-    file.seek(0)
-    file_lines = file.read()
-    list = file_lines.split("\n")
-    return list
+def list_builder(filename):
+    with open(filename, 'a+') as file:
+        file.seek(0)
+        file_lines = file.read()
+        list = file_lines.split("\n")
+        return list
 
 def send_email(email_body):
     sender_email = <UPDATE_VALUE>
     sender_password = <UPDATE_VALUE>
-    receiver_email = <UPDATE_VALUE>
     subject = "Anchore Notification"
     content = email_body
     ssl_context = ssl.create_default_context()
     server = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl_context)
+    email_list = list_builder("user_emails.txt")
     server.login(sender_email, sender_password)
-    server.sendmail(sender_email, receiver_email, f"Subject: {subject}\n{content}")
+    for i in range(len(list)):
+        server.sendmail(sender_email, email_list[i], f"Subject: {subject}\n{content}")
     server.quit()
     
 
